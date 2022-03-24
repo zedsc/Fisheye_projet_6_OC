@@ -1,22 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type ="text/css" href="scss/main.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye</title>
+    <script src="https://kit.fontawesome.com/96c7615c9a.js" crossorigin="anonymous"></script>
+
+    <title>Home page - Fisheye</title>
+    <meta name="description" content="Site web de photographes freelances.">
   </head>
+
   <body>
-    <header>
-        <img src="assets/images/logo.png" class="logo" />
-        <h1>Nos photographes</h1>
+    <!-- Header -->
+    <header role="banner">
+      <a href="#main" class="skip-link sr-only">Aller au contenu principal</a>
+      <a href="index.html">
+        <img class="logo" src="assets/images/logo.png" alt="Fisheye Home page"/>
+      </a>
+      <h1>Nos photographes</h1>
     </header>
-    <main id="main">
-        <div class="photographer_section"></div>
+
+    <!-- Contenu principal -->
+    <main id="main" role="main">
+        <!-- Groupe contenant la liste des photographes générée en JavaScript -->
+        <div class="photographer_section">
+        </div>
     </main>
+
+    
+    <script src="scripts/models/PhotographerData.js"></script>
+    <script src="scripts/templates/PhotographerCard.js"></script>
+    <script src="scripts/api/Api.js"></script>
+    <script src="scripts/conductor.js"></script>
+
+    <!-- Factories 
     <script src="scripts/factories/Photographer.js"></script>
+    Pages 
     <script src="scripts/pages/index.js"></script>
-    <script src="scripts/pages/photographer.js"></script>
+    <script src="scripts/pages/photographer.js"></script> -->
   </body>
 </html>
+
