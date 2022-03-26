@@ -1,0 +1,27 @@
+@mixin flex-center-column {
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+}
+
+// RESPONSIVE
+// RESPONSIVE //
+@mixin x-small-device {
+    @media screen and (max-width: map-get($breakpoints, x-small)){
+        @content;
+    }
+}
+
+@mixin small-device-above {
+    @media screen and (min-width: map-get($breakpoints, small)){
+        @content;
+    }
+}
+
+@mixin large-device-above {
+    @media screen and (min-width: map-get($breakpoints, large)){
+        @content;
+    }
+}
