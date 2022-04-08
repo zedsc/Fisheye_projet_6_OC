@@ -1,4 +1,4 @@
-header {
+.main-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -9,7 +9,7 @@ header {
     }
 }
 
-h1 {
+.h1-header {
     color: $color-primary;
     @include small-device-above {
         font-size: map-get($font-size, "32");
@@ -19,6 +19,6 @@ h1 {
 .logo {
     height: 40px;
     @include large-device-above {
-        height: 50px;
+        height: 46px;
     }
 }

@@ -2,7 +2,12 @@
 @import "./abstracts/functions";
 @import "./abstracts/mixins";
 @import "./base/reset-global";
-@import "./Base/base";
+@import "./base/base";
+@import "./components/button";
+@import "./Components/select-box";
 @import "./layout/header";
+@import "./layout/contactform";
+@import "./layout/lightbox";
 @import "./pages/index";
+@import "./pages/photographer";
 

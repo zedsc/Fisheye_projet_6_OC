@@ -79,7 +79,7 @@ font-size: $font-size-base;
 *::after {
   box-sizing: border-box;
   /* 1 */
-  min-width: 0;
+  /*min-width: 0;*/
   /* 2 */
 }
 
