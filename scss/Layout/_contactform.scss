@@ -1,0 +1,85 @@
+.bground-opacity {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba($gray-700, 0.4);
+}
+
+.contactform {
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 550px;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: #DB8876;
+    padding: 35px;
+    margin: 5% auto;
+    max-width: 600px;
+    opacity: 100%;
+    @include large-device-above {
+        top: 5%;
+        width: 50%;
+    }
+    &__heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        margin-bottom: 10px;
+        img {
+            cursor: pointer;
+        }
+    }
+    &__title {
+        font-size: map-get($font-size, "32");
+        line-height: 1;
+        @include large-device-above {
+            font-size: 3.5rem;
+            margin-left: 5px;
+        }
+    }
+    &__data {
+        width: 100%;
+    }
+}
+
+.form-data {
+    display: flex;
+    flex-direction: column;
+    &__label {
+        color: $black;
+        font-size: map-get($font-size, "24");
+        opacity: 0.8;
+        @include large-device-above {
+            font-size: map-get($font-size, "32");
+        }
+    }
+    &__input {
+        width: 100%;
+        height: 68px;
+        border: none;
+        border-radius: 5px;
+        font-family: $font-family-base;
+        font-size: map-get($font-size, "18");
+        @include large-device-above {
+            font-size: map-get($font-size, "20");
+        }
+    }
+    &__txtarea {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 25px;
+        font-family: $font-family-base;
+        font-size: map-get($font-size, "18");
+        @include large-device-above {
+            font-size: map-get($font-size, "20");
+        }
+    }
+}
