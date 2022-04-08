@@ -1,4 +1,4 @@
-.photographer_section {
+.photographer-section {
     /*display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;*/
@@ -24,6 +24,7 @@
 
 .photographer-card__link {
     @include flex-center-column;  
+    position: relative;
     .container-photographer-img {
         height: 70%;
         height: 200px;
@@ -36,22 +37,44 @@
             height: 100%;
         }
     }
-    h2 {
-        margin-top: 10px;
-        color: $color-secondary;
-        font-size: map-get($font-size, "32");
-        text-align: center;
-        
+    .container-photographer-img--border {
+        object-fit: cover;
+        top: 0;
+        position: absolute;
+        height: 210px;
+        width: 210px;
+        z-index: -1;
+        .photographer-card__img--border {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0) 50%, white 70%);
+        }
     }
 }
 
 .photographer-card figcaption {
     @include flex-center-column;
     .photographer-card {
+        &__name {
+            margin-top: 10px;
+            color: $color-secondary;
+            font-size: map-get($font-size, "32");
+            text-align: center;
+        }
         &__location {
             color: $color-primary;
         }
         &__tagline {
+            color: $black;
             font-size: map-get($font-size, "12");
         }
         &__price {
