@@ -1,36 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type ="text/css" href="scss/main.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <script src="https://kit.fontawesome.com/96c7615c9a.js" crossorigin="anonymous"></script>
+
+    <title>Photographe - Fisheye</title>
+    <meta name="description" content="Site web de photographes freelances.">
   </head>
+
   <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
+    <div class="main-wrapper">
+      <!-- Header -->
+      <header class="main-header" role="banner">
+        <a href="#main" class="sr-only skip-link">Aller au contenu principal</a>
+        <a href="index.html">
+          <img class="logo" src="assets/images/logo.png" alt="Fisheye Home page"/>
+        </a>
+      </header>
+
+      <!-- Contenu principal -->
+      <main id="main" role="main" aria-hidden="false">
+        <div class="photograph-header">
+        </div>
+
+        <div class="filter-container">
+          <form class="filter-form" action="#" method="POST">
+              <label class="filter-label" for="filter-select">Trier par</label>
+              <select class="filter-reset filter-style" name="filter-select" id="filter-select">
+                  <option value="likes">Popularité</option>
+                  <option value="date">Date</option>
+                  <option value="title">Titre</option>
+              </select>
+              <i class="fa-solid fa-angle-down"></i>
+          </form>
+        </div>
+
+        <div class="media-section">
+        </div>
+
+        <button class="contact-btn contact-btn--mobile" 
+                onclick="displayModal()">Contactez-moi
+        </button>
+
+        <div class="price-likes-btn">
+          <div class="price-likes-btn__txt">
+            <p class="price-likes-btn__likes">Likes</p>
+            <p class="price-likes-btn__price">Price</p>
+          </div>
+        </div>
+      </main>
+    
+
+      <!-- Formulaire de contact -->
+      <div class="bground-opacity" id="bground-opacity">
+        <div class="contactform" id="contactform" role="dialog" aria-hidden="true" aria-describedby="contactform__title">
+          <header class="contactform__heading">
+            <h2 class="contactform__title" id="contactform__title">Contactez-moi</h2>
+            <img id="close-modal-btn" tabindex="0" src="assets/icons/close.svg" alt="Close contact form" onclick="closeModal()"/>
+          </header>
+          <form class="contactform__data" name="contact" action="" method="post" onsubmit="">
+            <div class="form-data">
+              <label class="form-data__label" for="firstName">Prénom</label>
+              <input
+                  class="form-data__input"
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  minlength="2"
+                  aria-required="true"/>
+            </div>
+            <div class="form-data">
+              <label class="form-data__label" for="lastName">Nom</label>
+              <input
+                  class="form-data__input"
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  minlength="2"
+                  aria-required="true"/>
+            </div>
+            <div class="form-data">
+              <label class="form-data__label" for="email">Email</label>
+              <input
+                  class="form-data__input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  aria-required="true"/>
+            </div>
+            <div class="form-data">
+              <label class="form-data__label" for="msg-to-author">Votre message</label>
+              <textarea
+                  class="form-data__txtarea"
+                  id="msg-to-author"
+                  name="msg-to-author"
+                  minlength="2"
+                  aria-required="true">
+              </textarea>
+            </div>
+            
+            <button 
+              class="contact-btn contact-btn--close-form" 
+              aria-label="Send">
+              Envoyer
+            </button>
+          </form>
+        </div>
+    </div>
+
+    <!-- API -->
+    <script src="/scripts/api/Api.js"></script>
+
+    <!-- Models -->
+    <script src="/scripts/models/PhotographerData.js"></script>
+    <script src="/scripts/models/ImageData.js"></script>
+    <script src="/scripts/models/VideoData.js"></script>
+
+    <!-- Factories -->
+    <script src="/scripts/factories/MediaFactory.js"></script>
+
+    <!-- Templates -->
+    <script src="/scripts/templates/PhotographerBanner.js"></script>
+    <script src="/scripts/templates/ImageCard.js"></script>
+    <script src="/scripts/templates/VideoCard.js"></script>
+   
+    <!-- Utils -->
     <script src="/scripts/utils/contactForm.js"></script>
+
+    <!-- App -->
+    <script src="/scripts/pages/photographer.js"></script>
+    
+
+    </div>
   </body>
 </html>
