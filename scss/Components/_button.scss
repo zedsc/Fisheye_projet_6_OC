@@ -1,0 +1,79 @@
+// Photographer banner //
+.contact-btn {
+    position: relative;
+    z-index: 1;
+    font-size: map-get($font-size, "16");
+    font-family: $font-family-base;
+    color: $white;
+    font-weight: 600;
+    padding: 20px 10px;
+    border: none;
+    background-color: $color-primary;
+    border-radius: 5px;
+    letter-spacing: 0.05rem;
+    overflow: hidden;
+    cursor: pointer;
+    &:hover {
+        &::after {
+            opacity: 1;
+        }
+        color: $black;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: $color-secondary;
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
+.contact-btn {
+    &--desktop {
+        display: none;
+        @include large-device-above {
+            display: block;
+            margin-left: -60px;
+        }
+    }
+    &--mobile {
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        padding: 6px 15px;
+        @include large-device-above {
+            display: none;
+        }
+    }
+    &--close-form {
+        padding: 20px 30px;
+    }
+}
+
+.price-likes-btn {
+    display: none;
+    @include large-device-above {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 330px;
+        width: 50px;
+        font-size: map-get($font-size, "20")
+    }
+    &__txt {
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        width: 270px;
+        padding: 10px 25px;
+        background-color: $color-secondary;
+        border-radius: 5px;
+    }
+}
