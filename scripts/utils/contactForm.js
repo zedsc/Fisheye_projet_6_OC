@@ -1,4 +1,158 @@
-function displayModal() {
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM chargé')
+    const $triggers = document.querySelectorAll('[aria-haspopup="dialog"]');
+    const $dismissTriggers = document.querySelectorAll('[data-dismiss]')
+    const $modalBground = document.getElementById('bground-opacity');
+    const $mainContent = document.getElementById('main');
+    const $inputs = document.querySelectorAll('.form-data__input');
+    const $textArea = document.querySelector('.form-data__txtarea');
+
+    const focusableEltArray = [
+        '[href]',
+        'button:not([disabled])',
+        'input:not([disabled])',
+        'select:not([disabled])',
+        'textarea:not([disabled])',
+        'img:not([disabled])',
+        '[tabindex]:not([tabindex="-1"])',
+    ];
+
+    const keyCodes = {
+        enter: 13,
+        escape: 27,
+        tab: 9,
+    };
+
+    function openModal($modalToOpen, $bgroundToDisplay) {
+        const focusableElts = $modalToOpen.querySelectorAll(focusableEltArray);
+        const firstFocusableElt = focusableElts[0];
+        const lastFocusableElt = focusableElts[focusableElts.length - 1];
+
+        $mainContent.setAttribute('aria-hidden', true)
+        $modalToOpen.setAttribute('aria-hidden', false)
+        $bgroundToDisplay.style.display = 'block';
+        firstFocusableElt.focus();
+
+        if (!firstFocusableElt) {
+            return;
+        }
+
+        // focus inside modal
+        focusableElts.forEach((focusableElement) => {
+            if (focusableElement.addEventListener) {
+                focusableElement.addEventListener('keydown', event => {
+                    const tab = event.which === keyCodes.tab;
+
+                    if (!tab) {
+                        return;
+                    }
+
+                    if (event.shiftKey) {
+                        if (event.target === firstFocusableElt) {
+                            event.preventDefault();
+
+                            lastFocusableElt.focus();
+                        }
+                    } else if (event.target === lastFocusableElt) {
+                        event.preventDefault();
+
+                        firstFocusableElt.focus();
+                    }
+                })
+            }
+        })
+    }
+
+    function closeModal($modalToClose, $bgroundToHide, $triggerToFocus) {
+        $mainContent.setAttribute('aria-hidden', false)
+        $modalToClose.setAttribute('aria-hidden', true)
+        $bgroundToHide.style.display = 'none';
+        $triggerToFocus.focus();
+    }
+
+    
+    $triggers.forEach(($trigger) => {
+        const $dialog = document.getElementById($trigger.getAttribute('aria-controls'));
+
+        // Open modal
+        $trigger.addEventListener('click', event => {
+            event.preventDefault();
+
+            openModal($dialog, $modalBground)
+        })
+
+        $trigger.addEventListener('keydown', event => {
+            if (event.which === keyCodes.enter) {
+                event.preventDefault();
+
+                openModal($dialog, $modalBground)
+            }
+        })
+    
+        // Close modal
+        $dismissTriggers.forEach(($dismissTrigger) => {
+            const $dismissDialog = document.getElementById($dismissTrigger.dataset.dismiss);
+
+            $dismissTrigger.addEventListener('click', event => {
+                event.preventDefault();
+
+                closeModal($dismissDialog, $modalBground, $trigger);
+            })
+
+            $dismissTrigger.addEventListener('keydown', event => {
+                if (event.which === keyCodes.enter) {
+                    event.preventDefault();
+    
+                    closeModal($dismissDialog, $modalBground, $trigger)
+                }
+            })
+
+            $dismissDialog.addEventListener('keyup', event => {
+                if (event.which === keyCodes.escape) {
+                    event.preventDefault();
+    
+                    closeModal($dismissDialog, $modalBground, $trigger);
+                }
+            })
+
+            // Send form - cancel refresh
+            $dismissDialog.onsubmit = (event) => {
+                var inputsValue = "";
+                $inputs.forEach(($input) => {
+                    inputsValue += $input.value + ", ";
+                })
+                console.log(inputsValue + $textArea.value);
+
+                event.preventDefault();
+                closeModal($dismissDialog, $modalBground, $trigger);
+            }
+        })
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*function displayModal() {
     const $modal = document.getElementById("bground-opacity");
     const $mainHidden = document.getElementById("main");
     const $contactForm = document.getElementById("contactform");
@@ -20,9 +174,9 @@ document.addEventListener('keydown', event => {
  })
 
 
-}
+}*/
 
-function closeModal() {
+/*function closeModal() {
     const $modal = document.getElementById("bground-opacity");
     const $mainHidden = document.getElementById("main");
     const $contactForm = document.getElementById("contactform");
@@ -33,4 +187,4 @@ function closeModal() {
     $contactForm.setAttribute("aria-hidden", "true");
     $contactBtn.focus()
 }
-
+*/
