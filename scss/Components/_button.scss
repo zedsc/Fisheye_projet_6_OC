@@ -1,4 +1,4 @@
-// Photographer banner //
+// Contact button - base //
 .contact-btn {
     position: relative;
     z-index: 1;
@@ -33,6 +33,7 @@
 }
 
 .contact-btn {
+    // Contact button - on desktop //
     &--desktop {
         display: none;
         @include large-device-above {
@@ -40,6 +41,7 @@
             margin-left: -60px;
         }
     }
+    // Contact button - on mobile //
     &--mobile {
         position: fixed;
         bottom: 20px;
@@ -51,11 +53,13 @@
             display: none;
         }
     }
+    // Close button form //
     &--close-form {
         padding: 20px 30px;
     }
 }
 
+// Display number of likes + price per day //
 .price-likes-btn {
     display: none;
     @include large-device-above {
@@ -65,6 +69,11 @@
         right: 330px;
         width: 50px;
         font-size: map-get($font-size, "20")
+    }
+    &__container-likes {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
     &__txt {
         position: fixed;
@@ -76,4 +85,19 @@
         background-color: $color-secondary;
         border-radius: 5px;
     }
+    &__likes {
+        min-width: 45px;
+    }
 }
+
+// Heart icone - like button //
+.ico-likes__link {
+    color: $color-primary;
+    &:hover {
+        color: $color-primary;
+    }
+}
+.like-ico {
+    cursor: pointer;
+}
+
