@@ -1,7 +1,4 @@
 .photographer-section {
-    /*display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;*/
     margin-top: 70px;
     @include small-device-above {
         display: flex;

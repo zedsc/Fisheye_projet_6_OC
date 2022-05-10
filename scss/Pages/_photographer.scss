@@ -123,6 +123,7 @@
         object-position: center 30%;
         width: 100%;
         height: 100%;
+        cursor: pointer;
         @include large-device-above {
             object-position: unset;
         }
@@ -132,6 +133,7 @@
 .media-legend {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     margin: 10px 0;
     &__title {
         max-width: 75%;
@@ -149,4 +151,16 @@
             font-size: map-get($font-size, "18");
         }
     }
+}
+
+.container-legend-ico-heart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $color-primary;
+    .like-ico {
+        margin-left: 5px;
+        display: inline-block;
+    }
+
 }

@@ -6,10 +6,23 @@
     flex-direction: column; 
 }
 
+@mixin arrow-btn-lightbox {
+    border: none;
+    width: 55px;
+    height: 55px;
+    background: url(/assets/icons/arrow.svg) center center / 100% 100%;
+}
+
 // RESPONSIVE
 // RESPONSIVE //
 @mixin x-small-device {
     @media screen and (max-width: map-get($breakpoints, x-small)){
+        @content;
+    }
+}
+
+@mixin small-device {
+    @media screen and (max-width: map-get($breakpoints, small)){
         @content;
     }
 }

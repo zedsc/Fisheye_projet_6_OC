@@ -1,7 +1,7 @@
 .bground-opacity {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     left: 0;
     top: 0;
     height: 100%;
@@ -18,7 +18,7 @@
     max-width: 550px;
     overflow: hidden;
     border-radius: 5px;
-    background-color: #DB8876;
+    background-color: $color-tertiary;
     padding: 35px;
     margin: 5% auto;
     max-width: 600px;
@@ -69,7 +69,7 @@
         width: 100%;
         height: 68px;
         border: none;
-        border-radius: 5px;
+        border-radius: $radius-5px;
         font-family: $font-family-base;
         font-size: map-get($font-size, "18");
         @include large-device-above {

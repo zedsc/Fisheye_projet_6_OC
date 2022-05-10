@@ -9,7 +9,7 @@
     padding: 20px 10px;
     border: none;
     background-color: $color-primary;
-    border-radius: 5px;
+    border-radius: $radius-5px;
     letter-spacing: 0.05rem;
     overflow: hidden;
     cursor: pointer;
@@ -82,8 +82,8 @@
         justify-content: space-between;
         width: 270px;
         padding: 10px 25px;
-        background-color: $color-secondary;
-        border-radius: 5px;
+        background-color: $color-tertiary;
+        border-radius: $radius-5px;
     }
     &__likes {
         min-width: 45px;

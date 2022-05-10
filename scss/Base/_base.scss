@@ -5,3 +5,11 @@
     margin: auto;
     position: relative;
 }
+
+.display-hidden {
+    display: none;
+}
+
+*:focus {
+    border: 3px solid orangered;
+}
