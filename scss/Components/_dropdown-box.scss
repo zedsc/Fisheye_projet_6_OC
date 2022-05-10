@@ -16,7 +16,7 @@
 }
 
 
-details.select_container {
+details.select__container {
   display: inline-block;
   width: 150px;
   border-radius: $radius-5px;
@@ -27,11 +27,11 @@ details.select_container {
   font-weight: bold;
 }
 
-details.select_container[open] {
+details.select__container[open] {
   border-radius: $radius-5px;
 }
 
-details.select_container summary::after {
+details.select__container summary::after {
   content: "\00203A";
   position: absolute;
   right: 12px;
@@ -42,11 +42,11 @@ details.select_container summary::after {
   font-size: 25px;
 }
 
-details.select_container[open] summary::after {
+details.select__container[open] summary::after {
   content: "\002039";
 }
 
-details.select_container summary {
+details.select__container summary {
   cursor: pointer;
   padding: 12px 12px 6px;
   background: $color-primary;
@@ -55,15 +55,15 @@ details.select_container summary {
   height: 50px;
 }
 
-details.select_container summary::-webkit-details-marker {
+details.select__container summary::-webkit-details-marker {
   display: none;
 }
 
-details.select_container summary:hover {
+details.select__container summary:hover {
   background: $color-tertiary;
 }
 
-details.select_container .select {
+details.select__container .select {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -74,33 +74,33 @@ details.select_container .select {
   box-shadow: 0px 4px 9px 0px rgba(0,0,0,0.15);
 }
 
-details.select_container .select__option {
+details.select__container .select__option {
   cursor: pointer;
   padding: 12px 12px 6px;
   height: 50px;
 }
 
-details.select_container .select:hover .select__option.active {
+details.select__container .select:hover .select__option.active {
   background: $color-secondary;
   color: $black;
 }
 
-details.select_container .select__option.active,
-details.select_container .select:hover .select__option.active:hover,
-details.select_container .select__option:hover {
+details.select__container .select__option.active,
+details.select__container .select:hover .select__option.active:hover,
+details.select__container .select__option:hover {
   background-color: $color-tertiary;
   color: $black;
 }
 
-details.select_container .select__option input {
+details.select__container .select__option input {
   display: none;
 }
 
 .border-top {
   position: absolute;
-border-top: 1px solid white;
-width: 90%;
-top: 0;
+  border-top: 1px solid $white;
+  width: 90%;
+  top: 0;
   left: 10px;
   opacity: 0.6;
 }

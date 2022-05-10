@@ -133,6 +133,12 @@ a:active {
   border: 3px solid orangered;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+}
+
 .contact-btn {
   position: relative;
   z-index: 1;
@@ -254,7 +260,7 @@ a:active {
   margin-right: 10px;
 }
 
-details.select_container {
+details.select__container {
   display: inline-block;
   width: 150px;
   border-radius: 5px;
@@ -265,11 +271,11 @@ details.select_container {
   font-weight: bold;
 }
 
-details.select_container[open] {
+details.select__container[open] {
   border-radius: 5px;
 }
 
-details.select_container summary::after {
+details.select__container summary::after {
   content: "›";
   position: absolute;
   right: 12px;
@@ -280,11 +286,11 @@ details.select_container summary::after {
   font-size: 25px;
 }
 
-details.select_container[open] summary::after {
+details.select__container[open] summary::after {
   content: "‹";
 }
 
-details.select_container summary {
+details.select__container summary {
   cursor: pointer;
   padding: 12px 12px 6px;
   background: #901C1C;
@@ -293,15 +299,15 @@ details.select_container summary {
   height: 50px;
 }
 
-details.select_container summary::-webkit-details-marker {
+details.select__container summary::-webkit-details-marker {
   display: none;
 }
 
-details.select_container summary:hover {
+details.select__container summary:hover {
   background: #DB8876;
 }
 
-details.select_container .select {
+details.select__container .select {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -312,31 +318,31 @@ details.select_container .select {
   box-shadow: 0px 4px 9px 0px rgba(0, 0, 0, 0.15);
 }
 
-details.select_container .select__option {
+details.select__container .select__option {
   cursor: pointer;
   padding: 12px 12px 6px;
   height: 50px;
 }
 
-details.select_container .select:hover .select__option.active {
+details.select__container .select:hover .select__option.active {
   background: #D3573C;
   color: #0F0F0F;
 }
 
-details.select_container .select__option.active,
-details.select_container .select:hover .select__option.active:hover,
-details.select_container .select__option:hover {
+details.select__container .select__option.active,
+details.select__container .select:hover .select__option.active:hover,
+details.select__container .select__option:hover {
   background-color: #DB8876;
   color: #0F0F0F;
 }
 
-details.select_container .select__option input {
+details.select__container .select__option input {
   display: none;
 }
 
 .border-top {
   position: absolute;
-  border-top: 1px solid white;
+  border-top: 1px solid #FFFFFF;
   width: 90%;
   top: 0;
   left: 10px;
@@ -349,12 +355,6 @@ input {
 
 label {
   position: relative;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
 }
 
 .sorter-form {
@@ -370,7 +370,7 @@ label {
     display: flex;
   }
 }
-.sorter-form .sorter-label {
+.sorter-form .sorter-label-sr {
   font-weight: 600;
   font-size: 1rem;
   margin-right: 10px;
@@ -405,20 +405,9 @@ label {
   font-weight: bold;
   color: #FFFFFF;
 }
-
 .option:hover {
   background: #D3573C;
   color: #0F0F0F;
-}
-
-.select:focus .option {
-  position: relative;
-  pointer-events: all;
-  border-radius: unset;
-}
-
-.select:focus .sorter-arrow {
-  transform: rotate(180deg);
 }
 
 .select:focus {
@@ -426,6 +415,14 @@ label {
   position: absolute;
   top: 0;
   left: 76px;
+}
+.select:focus .option {
+  position: relative;
+  pointer-events: all;
+  border-radius: unset;
+}
+.select:focus .sorter-arrow {
+  transform: rotate(180deg);
 }
 
 .selectopt {
@@ -439,11 +436,11 @@ input:checked + label {
   background: #901C1C;
   position: relative;
 }
-input:checked + label .border-top {
+input:checked + label .border-top-sr {
   border-top: none;
 }
 
-.border-top {
+.border-top-sr {
   position: absolute;
   border-top: 1px solid #FFFFFF;
   width: 90%;

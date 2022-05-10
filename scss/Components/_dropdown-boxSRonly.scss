@@ -1,8 +1,4 @@
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-}
+
 
 .sorter-form {
   margin: 0 10% 50px 10%;
@@ -14,7 +10,7 @@
   @include large-device-above {
       display: flex;
   }
-  .sorter-label {
+  .sorter-label-sr {
       font-weight: 600;
       font-size: map-get($font-size, "16");
       margin-right: 10px;
@@ -81,12 +77,12 @@ input:checked + label {
   z-index: 2;
   background: $color-primary;
   position: relative;
-  .border-top {
+  .border-top-sr {
     border-top: none;
   }
 }
 
-.border-top {
+.border-top-sr {
   position: absolute;
   border-top: 1px solid $white;
   width: 90%;
