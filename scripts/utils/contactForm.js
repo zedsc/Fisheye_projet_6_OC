@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Send form - cancel refresh
             $dismissDialog.onsubmit = (event) => {
-                var inputsValue = "";
+                let inputsValue = "";
                 $inputs.forEach(($input) => {
                     inputsValue += $input.value + ", ";
                 })
