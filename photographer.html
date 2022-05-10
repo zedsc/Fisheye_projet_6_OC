@@ -16,7 +16,7 @@
   <body>
     <div class="main-wrapper">
       <!-- Header -->
-      <header class="main-header" role="banner">
+      <header class="main-header">
         <a href="#main" class="sr-only skip-link">Aller au contenu principal</a>
         <a href="index.html">
           <img class="logo" src="assets/images/logo.png" alt="Fisheye Home page"/>
@@ -24,32 +24,58 @@
       </header>
 
       <!-- Contenu principal -->
-      <main id="main" role="main" aria-hidden="false">
+      <main id="main" aria-hidden="false">
         <div class="photograph-header">
         </div>
 
-        <div class="filter-container">
-          <form class="filter-form" action="#" method="POST">
-              <label class="filter-label" for="filter-select">Trier par</label>
-              <select class="filter-reset filter-style" name="filter-select" id="filter-select">
-                  <option value="likes">Popularité</option>
-                  <option value="date">Date</option>
-                  <option value="title">Titre</option>
-              </select>
-              <i class="fa-solid fa-angle-down"></i>
-          </form>
+        <button 
+          class="contact-btn contact-btn--desktop"
+          type="button"
+          aria-haspopup="dialog"
+          aria-controls="contactform">Contactez-moi
+        </button>
+
+        <!-- Tri - dropdown box -->
+        <div class="filter-container" aria-hidden="true">
+          <label class="sorter-label">Trier par</label>
+          <details id="example_select" class="select_container">
+            <summary>--</summary>
+            <div class="select" role="listbox" aria-haspopup="listbox" aria-expanded="false">
+              <label class="select__option">
+                <input checked type="radio" name="example" value="date DESC"><span class="border-top"></span>Date
+              </label>
+              <label class="select__option">
+                <input type="radio" name="example" value="likes DESC"><span class="border-top"></span>Popularité
+              </label>
+              <label class="select__option">
+                <input type="radio" name="example" value="title ASC"><span class="border-top"></span>Titre
+              </label>
+            </div>
+          </details>
+        </div>
+
+        <div class="filter-container-SR-only">
         </div>
 
         <div class="media-section">
         </div>
 
-        <button class="contact-btn contact-btn--mobile" 
-                onclick="displayModal()">Contactez-moi
+
+        <!-- Contact btn mobile only -->
+        <button 
+          class="contact-btn contact-btn--mobile"
+          type="button"
+          aria-haspopup="dialog"
+          aria-controls="contactform">Contactez-moi
         </button>
 
+        <!-- Likes totaux et prix -->
         <div class="price-likes-btn">
           <div class="price-likes-btn__txt">
-            <p class="price-likes-btn__likes">Likes</p>
+            <div class="price-likes-btn__container-likes">
+              <p class="price-likes-btn__likes">Likes</p>
+              <i class="fa-solid fa-heart"></i>
+            </div>
             <p class="price-likes-btn__price">Price</p>
           </div>
         </div>
@@ -58,12 +84,32 @@
 
       <!-- Formulaire de contact -->
       <div class="bground-opacity" id="bground-opacity">
-        <div class="contactform" id="contactform" role="dialog" aria-hidden="true" aria-describedby="contactform__title">
+        <div class="contactform" 
+          id="contactform" 
+          role="dialog" 
+          tabindex="-1"
+          aria-hidden="true" 
+          aria-modal="true"
+          aria-describedby="contactform__title">
           <header class="contactform__heading">
             <h2 class="contactform__title" id="contactform__title">Contactez-moi</h2>
-            <img id="close-modal-btn" tabindex="0" src="assets/icons/close.svg" alt="Close contact form" onclick="closeModal()"/>
+            <img 
+              id="close-modal-btn" 
+              class="contactform__close"
+              src="assets/icons/close.svg" 
+              aria-label="Close"
+              title="Close contact form"
+              alt="Close contact form" 
+              data-dismiss="contactform"
+              tabindex="0"
+            />
           </header>
-          <form class="contactform__data" name="contact" action="" method="post" onsubmit="">
+          <form 
+            class="contactform__data" 
+            name="contact" 
+            action="photographer.html" 
+            method="post" 
+            onsubmit="return false">
             <div class="form-data">
               <label class="form-data__label" for="firstName">Prénom</label>
               <input
@@ -72,6 +118,7 @@
                   id="firstName"
                   name="firstName"
                   minlength="2"
+                  required
                   aria-required="true"/>
             </div>
             <div class="form-data">
@@ -82,6 +129,7 @@
                   id="lastName"
                   name="lastName"
                   minlength="2"
+                  required
                   aria-required="true"/>
             </div>
             <div class="form-data">
@@ -91,6 +139,7 @@
                   type="email"
                   id="email"
                   name="email"
+                  required
                   aria-required="true"/>
             </div>
             <div class="form-data">
@@ -99,18 +148,42 @@
                   class="form-data__txtarea"
                   id="msg-to-author"
                   name="msg-to-author"
-                  minlength="2"
+                  minlength="5"
+                  required
                   aria-required="true">
               </textarea>
             </div>
             
             <button 
               class="contact-btn contact-btn--close-form" 
-              aria-label="Send">
-              Envoyer
+              type="submit">Envoyer
             </button>
           </form>
         </div>
+      </div>
+
+      <!-- Lightbox -->
+      <div class="lightbox__wrapper display-hidden"
+          role="dialog" 
+          tabindex="-1"
+          aria-hidden="true" 
+          aria-modal="true"
+          aria-describedby="lightbox">
+            <div class="container-lbx-flex">
+              <button class="lightbox__prev"
+              aria-label="Previous"
+              title="Previous media"></button>
+              <figure id="lightbox" class="lightbox">
+              </figure>
+              <button class="lightbox__next"
+              aria-label="Next"
+              title="Next media"></button>
+              <button class="lightbox__close"
+              aria-label="Close"
+              title="Close lightbox"></button>                
+          </div>
+      </div>
+
     </div>
 
     <!-- API -->
@@ -126,16 +199,21 @@
 
     <!-- Templates -->
     <script src="/scripts/templates/PhotographerBanner.js"></script>
-    <script src="/scripts/templates/ImageCard.js"></script>
-    <script src="/scripts/templates/VideoCard.js"></script>
-   
+    <script src="/scripts/templates/MediaCard.js"></script>
+    <script src="/scripts/templates/SorterForm.js"></script>
+    <script src="/scripts/templates/SorterFormSRonly.js"></script>
+    
+    <!-- Lightbox-->
+    <script src="/scripts/LightboxEvent/Lightbox.js"></script>
+    <script src="/scripts/LightboxEvent/lightboxTrigger.js"></script>
+
     <!-- Utils -->
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/SorterFunc.js"></script>
+    <script src="/scripts/utils/Dropdownbox.js"></script>
 
     <!-- App -->
     <script src="/scripts/pages/photographer.js"></script>
     
-
-    </div>
   </body>
 </html>

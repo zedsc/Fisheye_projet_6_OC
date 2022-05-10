@@ -16,7 +16,7 @@
   <body>
     <div class="main-wrapper">
       <!-- Header -->
-      <header class="main-header" role="banner">
+      <header class="main-header">
         <a href="#main" class="sr-only skip-link">Aller au contenu principal</a>
         <a href="index.html">
           <img class="logo" src="assets/images/logo.png" alt="Fisheye Home page"/>
@@ -25,24 +25,24 @@
       </header>
 
       <!-- Contenu principal -->
-      <main id="main" role="main">
+      <main id="main">
         <!-- Groupe contenant la liste des photographes générée en JavaScript -->
         <div class="photographer-section">
         </div>
       </main>
 
-      
-      <script src="scripts/models/PhotographerData.js"></script>
-      <script src="scripts/templates/PhotographerCard.js"></script>
+      <!-- API -->
       <script src="scripts/api/Api.js"></script>
-      <script src="scripts/conductor.js"></script>
 
-      <!-- Factories 
-      <script src="scripts/factories/Photographer.js"></script>
-      Pages 
+      <!-- Models -->
+      <script src="scripts/models/PhotographerData.js"></script>
+
+      <!-- Templates -->
+      <script src="scripts/templates/PhotographerCard.js"></script>
+      
+      <!-- App -->
       <script src="scripts/pages/index.js"></script>
-      <script src="scripts/pages/photographer.js"></script> -->
+
     </div>
   </body>
 </html>
-
