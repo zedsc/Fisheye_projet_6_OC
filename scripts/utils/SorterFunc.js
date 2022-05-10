@@ -1,3 +1,5 @@
+/*Sorts an array of objects by a given key
+ */
 class SorterApiMedias {
     static async funcSorter(data, orderBy) {
 

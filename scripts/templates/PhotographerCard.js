@@ -1,4 +1,7 @@
 class PhotographerCard {
+    /**
+     * @param {object} photographer 
+     */
     constructor(photographer) {
         this._photographer = photographer
     }

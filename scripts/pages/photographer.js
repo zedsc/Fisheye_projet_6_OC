@@ -1,11 +1,12 @@
+//Get ID from URL
 const queryUrl = window.location.search;
-
-//on extrait l'id
 const urlSearchParams = new URLSearchParams(queryUrl);
-const getId = urlSearchParams.get("id");
+const getId = urlSearchParams.get('id');
 
 console.log(getId);
 
+// Photographer page architecture
+// Creates et puts elements together
 class AppAutorPage {
     constructor() {
         this.$mediaSection = document.querySelector('.media-section')
@@ -13,11 +14,19 @@ class AppAutorPage {
         this.photographerApi = new Api('/data/photographers.json')
     }
 
-    
     async main() {
-        const photographData = await this.photographerApi.getPhotograph()
+        const $totalOfLikes = document.querySelector('.price-likes-btn__likes');
 
+        const photographData = await this.photographerApi.getPhotograph()
         const mediaData = await this.photographerApi.getMedias()
+
+        const Medias = mediaData.map(media => new MediaFactory(media))
+
+        const SorterMedias = new SorterForm(Medias)
+        SorterMedias.onChangeEventSorter()
+
+        const SorterMediasSRonly = new SorterFormSRonly(Medias)
+        SorterMediasSRonly.render()
         
         photographData
             .map(photographer => new PhotographerData(photographer))
@@ -28,39 +37,21 @@ class AppAutorPage {
                 Template.addPhotographerName();
             })
 
-        mediaData
-            .map(media => new MediaFactory(media))
+        Medias
             .forEach(media => {
-                const modeleVideo = new VideoCard(media)
-                const modeleImage = new ImageCard(media)
+                const modele = new MediaCard(media)
 
-                if (media.video) {
-                    this.$mediaSection.appendChild(
-                    modeleVideo.createVideoCard())
-                } else {
-                    this.$mediaSection.appendChild(
-                    modeleImage.createImageCard())
-                }
+                this.$mediaSection.appendChild(
+                    modele.createMediaCard())
             })
-        console.log(mediaData)
+
+        $totalOfLikes.textContent = mediaData.reduce((acc, mediaLike) => acc + mediaLike.likes, 0);
+        
+        const lightbox = new Lightbox(Medias);
+        const triggeredLightbox = new TriggerLightbox(lightbox)
+        triggeredLightbox.triggerLightbox();
     }
 }
 
 const appAutorPage = new AppAutorPage()
 appAutorPage.main();
-
-
-var heroes = [
-    {name: "Batman", franchise: "DC"},
-    {name: "Ironman", franchise: "Marvel"},
-    {name: "Thor", franchise: "Marvel"},
-    {name: "Superman", franchise: "DC"}
-];
-
-var marvelHeroes =  heroes.filter(function(hero) {
-    return hero.franchise == "Marvel";
-});
-
-console.log(marvelHeroes);
-
-// [ {name: "Ironman", franchise: "Marvel"}, {name: "Thor", franchise: "Marvel"} ]

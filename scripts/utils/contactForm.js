@@ -18,12 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         '[tabindex]:not([tabindex="-1"])',
     ];
 
-    const keyCodes = {
-        enter: 13,
-        escape: 27,
-        tab: 9,
-    };
-
     function openModal($modalToOpen, $bgroundToDisplay) {
         const focusableElts = $modalToOpen.querySelectorAll(focusableEltArray);
         const firstFocusableElt = focusableElts[0];
@@ -38,11 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // focus inside modal
+        // Focus inside modal
         focusableElts.forEach((focusableElement) => {
             if (focusableElement.addEventListener) {
                 focusableElement.addEventListener('keydown', event => {
-                    const tab = event.which === keyCodes.tab;
+                    const tab = event.key === 'Tab';
 
                     if (!tab) {
                         return;
@@ -71,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         $triggerToFocus.focus();
     }
 
-    
+    // Managing open and close events
     $triggers.forEach(($trigger) => {
         const $dialog = document.getElementById($trigger.getAttribute('aria-controls'));
 
@@ -83,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
 
         $trigger.addEventListener('keydown', event => {
-            if (event.which === keyCodes.enter) {
+            if (event.key === 'Enter') {
                 event.preventDefault();
 
                 openModal($dialog, $modalBground)
@@ -101,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
 
             $dismissTrigger.addEventListener('keydown', event => {
-                if (event.which === keyCodes.enter) {
+                if (event.key === 'Enter') {
                     event.preventDefault();
     
                     closeModal($dismissDialog, $modalBground, $trigger)
@@ -109,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
 
             $dismissDialog.addEventListener('keyup', event => {
-                if (event.which === keyCodes.escape) {
+                if (event.key === 'Escape') {
                     event.preventDefault();
     
                     closeModal($dismissDialog, $modalBground, $trigger);
