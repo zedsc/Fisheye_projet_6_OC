@@ -35,26 +35,7 @@
           aria-controls="contactform">Contactez-moi
         </button>
 
-        <!-- Tri - dropdown box -->
-        <div class="filter-container" aria-hidden="true">
-          <label class="sorter-label">Trier par</label>
-          <details id="filter-select" class="select__container">
-            <summary>--</summary>
-            <div class="select" role="listbox" aria-haspopup="listbox" aria-expanded="false">
-              <label class="select__option">
-                <input checked type="radio" name="example" value="date DESC"><span class="border-top"></span>Date
-              </label>
-              <label class="select__option">
-                <input type="radio" name="example" value="likes DESC"><span class="border-top"></span>Popularité
-              </label>
-              <label class="select__option">
-                <input type="radio" name="example" value="title ASC"><span class="border-top"></span>Titre
-              </label>
-            </div>
-          </details>
-        </div>
-
-        <div class="filter-container-sr sr-only">
+        <div class="sorter-container">
         </div>
 
         <div class="media-section">
@@ -74,7 +55,7 @@
           <div class="price-likes-btn__txt">
             <div class="price-likes-btn__container-likes">
               <p class="price-likes-btn__likes">Likes</p>
-              <i class="fa-solid fa-heart"></i>
+              <span class="fa-solid fa-heart"></span>
             </div>
             <p class="price-likes-btn__price">Price</p>
           </div>
@@ -200,8 +181,7 @@
     <!-- Templates -->
     <script src="/scripts/templates/PhotographerBanner.js"></script>
     <script src="/scripts/templates/MediaCard.js"></script>
-    <script src="/scripts/templates/SorterForm.js"></script>
-    <script src="/scripts/templates/SorterFormSRonly.js"></script>
+    <script src="/scripts/templates/SorterSelectBox.js"></script>
     
     <!-- Lightbox-->
     <script src="/scripts/LightboxEvent/Lightbox.js"></script>
@@ -210,7 +190,6 @@
     <!-- Utils -->
     <script src="/scripts/utils/contactForm.js"></script>
     <script src="/scripts/utils/SorterFunc.js"></script>
-    <script src="/scripts/utils/Dropdownbox.js"></script>
 
     <!-- App -->
     <script src="/scripts/pages/photographer.js"></script>

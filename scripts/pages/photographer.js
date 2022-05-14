@@ -22,11 +22,14 @@ class AppAutorPage {
 
         const Medias = mediaData.map(media => new MediaFactory(media))
 
-        const SorterMedias = new SorterForm(Medias)
+        const SorterMedias = new SorterSelectbox(Medias)
+        SorterMedias.renderSelect()
+        
+        /*const SorterMedias = new SorterForm(Medias)
         SorterMedias.onChangeEventSorter()
 
         const SorterMediasSRonly = new SorterFormSRonly(Medias)
-        SorterMediasSRonly.render()
+        SorterMediasSRonly.render()*/
         
         photographData
             .map(photographer => new PhotographerData(photographer))

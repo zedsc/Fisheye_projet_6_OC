@@ -83,7 +83,7 @@ class MediaCard {
             <h2 class="media-legend__title">${this._media.title}</h2>
             <div class="container-legend-ico-heart">
                 <p class="media-legend__likes">${this._media.likes}</p>
-                <i class="fa-solid fa-heart like-ico" aria-label="likes" title="heart icon" role="button" tabindex="0"></i>
+                <span class="fa-solid fa-heart like-ico" aria-label="likes" title="heart icon" role="button" tabindex="0"></span>
             </div>
         </figcaption>
     </figure>
@@ -111,7 +111,7 @@ class MediaCard {
                     <h2 class="media-legend__title">${this._media.title}</h2>
                     <div class="container-legend-ico-heart">
                         <p class="media-legend__likes">${this._media.likes}</p>
-                        <i class="fa-solid fa-heart like-ico" aria-label="likes" title="heart icon" role="button" tabindex="0"></i>
+                        <span class="fa-solid fa-heart like-ico" aria-label="likes" title="heart icon" role="button" tabindex="0"></span>
                     </div>
                 </div>
             </article>
@@ -124,7 +124,3 @@ class MediaCard {
         }
     }
 }
-
-// {/* <span class="like-ico" aria-label="likes" title="heart icon" role="button" tabindex="0">
-//                             <i class="fa-solid fa-heart like-ico"></i>
-//                         </span> */}
