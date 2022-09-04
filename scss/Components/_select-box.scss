@@ -1,57 +1,59 @@
 .sorter-form {
-    margin: 0 10% 50px 10%;
-    display: none;
-    position: relative;
-    width: 210px;
-    @include large-device-above {
-        display: block;
-    }
-    .sorter-label {
-        font-weight: 600;
-        font-size: map-get($font-size, "16");
-    }
+  margin: 0 10% 50px 10%;
+  display: none;
+  position: relative;
+  width: 210px;
+  @include large-device-above {
+    display: block;
+  }
+  .sorter-label {
+    font-weight: 600;
+    font-size: map-get($font-size, "16");
+  }
 }
 
 .sorter-reset {
-    appearance: none;
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-    background: transparent;
-    background-image: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  background-image: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
 .sorter-style {
-    font-family: $font-family-base;
-    font-size: map-get($font-size, "16");
-    color: $white;
-    font-weight: 600;
-    padding: 10px;
-    border-radius: 5px;
-    width: 130px;
-    background-color: $color-primary;
-    margin-left: 5px;
-    cursor: pointer;
-    option:checked {
-        background-color: $color-secondary;
-    }
+  font-family: $font-family-base;
+  font-size: map-get($font-size, "16");
+  color: $white;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 5px;
+  width: 130px;
+  background-color: $color-primary;
+  margin-left: 5px;
+  cursor: pointer;
+  option:checked {
+    background-color: $color-secondary;
+  }
 }
 
 .sorter-arrow::after {
   content: "\00203A";
   font-size: 26px;
   font-weight: bold;
-  color:$white;
+  color: $white;
   position: absolute;
   z-index: 3;
   right: 13px;
   top: 20px;
   transform: translateY(-50%) rotate(90deg);
   transition: all 250ms ease-in-out;
-} 
+}
 
 .sorter-arrow.rotate::after {
   content: "\002039";

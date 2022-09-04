@@ -1,24 +1,24 @@
 .main-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 40px 5%;
-    @include large-device-above {
-        margin: 40px 10%;
-    }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px 5%;
+  @include large-device-above {
+    margin: 40px 10%;
+  }
 }
 
 .h1-header {
-    color: $color-primary;
-    @include small-device-above {
-        font-size: map-get($font-size, "32");
-    }
+  color: $color-primary;
+  @include small-device-above {
+    font-size: map-get($font-size, "32");
+  }
 }
 
 .logo {
-    height: 40px;
-    @include large-device-above {
-        height: 46px;
-    }
+  height: 40px;
+  @include large-device-above {
+    height: 46px;
+  }
 }

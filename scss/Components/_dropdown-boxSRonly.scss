@@ -1,5 +1,3 @@
-
-
 .sorter-form {
   margin: 0 10% 50px 10%;
   min-height: 50px;
@@ -8,12 +6,12 @@
   align-items: center;
   list-style: none;
   @include large-device-above {
-      display: flex;
+    display: flex;
   }
   .sorter-label-sr {
-      font-weight: 600;
-      font-size: map-get($font-size, "16");
-      margin-right: 10px;
+    font-weight: 600;
+    font-size: map-get($font-size, "16");
+    margin-right: 10px;
   }
 }
 
@@ -51,7 +49,6 @@
   }
 }
 
-
 .select:focus {
   min-height: 150px;
   position: absolute;
@@ -60,7 +57,7 @@
   .option {
     position: relative;
     pointer-events: all;
-    border-radius: unset;  
+    border-radius: unset;
   }
   .sorter-arrow {
     transform: rotate(180deg);
@@ -94,11 +91,10 @@ input:checked + label {
 .sorter-arrow {
   font-size: 24px;
   font-weight: bold;
-  color:$white;
+  color: $white;
   position: absolute;
   z-index: 3;
   right: 15px;
   top: 20px;
-  transition: all 250ms ease-in-out
+  transition: all 250ms ease-in-out;
 }
-

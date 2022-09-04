@@ -1,21 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
 
 .main-wrapper {
-    max-width: 1400px;
-    margin: auto;
-    position: relative;
+  max-width: 1400px;
+  margin: auto;
+  position: relative;
 }
 
 .display-hidden {
-    display: none;
+  display: none;
 }
 
 *:focus {
-    border: 3px solid orangered;
+  border: 3px solid orangered;
 }
 
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-  }
+  position: absolute;
+  width: 1px;
+  height: 1px;
+}

@@ -1,103 +1,102 @@
 // Contact button - base //
 .contact-btn {
-    position: relative;
-    z-index: 1;
-    font-size: map-get($font-size, "16");
-    font-family: $font-family-base;
-    color: $white;
-    font-weight: 600;
-    padding: 20px 10px;
-    border: none;
-    background-color: $color-primary;
-    border-radius: $radius-5px;
-    letter-spacing: 0.05rem;
-    overflow: hidden;
-    cursor: pointer;
-    &:hover {
-        &::after {
-            opacity: 1;
-        }
-        color: $black;
-    }
+  position: relative;
+  z-index: 1;
+  font-size: map-get($font-size, "16");
+  font-family: $font-family-base;
+  color: $white;
+  font-weight: 600;
+  padding: 20px 10px;
+  border: none;
+  background-color: $color-primary;
+  border-radius: $radius-5px;
+  letter-spacing: 0.05rem;
+  overflow: hidden;
+  cursor: pointer;
+  &:hover {
     &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        background: $color-secondary;
-        opacity: 0;
-        z-index: -1;
+      opacity: 1;
     }
+    color: $black;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: $color-secondary;
+    opacity: 0;
+    z-index: -1;
+  }
 }
 
 .contact-btn {
-    // Contact button - on desktop //
-    &--desktop {
-        display: none;
-        @include large-device-above {
-            display: block;
-            margin-left: -60px;
-        }
+  // Contact button - on desktop //
+  &--desktop {
+    display: none;
+    @include large-device-above {
+      display: block;
+      margin-left: -60px;
     }
-    // Contact button - on mobile //
-    &--mobile {
-        position: fixed;
-        bottom: 20px;
-        left: 0;
-        right: 0;
-        margin: auto;
-        padding: 6px 15px;
-        @include large-device-above {
-            display: none;
-        }
+  }
+  // Contact button - on mobile //
+  &--mobile {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 6px 15px;
+    @include large-device-above {
+      display: none;
     }
-    // Close button form //
-    &--close-form {
-        padding: 20px 30px;
-    }
+  }
+  // Close button form //
+  &--close-form {
+    padding: 20px 30px;
+  }
 }
 
 // Display number of likes + price per day //
 .price-likes-btn {
-    display: none;
-    @include large-device-above {
-        display: block;
-        position: absolute;
-        bottom: 0;
-        right: 330px;
-        width: 50px;
-        font-size: map-get($font-size, "20")
-    }
-    &__container-likes {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    &__txt {
-        position: fixed;
-        bottom: 0;
-        display: flex;
-        justify-content: space-between;
-        width: 270px;
-        padding: 10px 25px;
-        background-color: $color-tertiary;
-        border-radius: $radius-5px;
-    }
-    &__likes {
-        min-width: 45px;
-    }
+  display: none;
+  @include large-device-above {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 330px;
+    width: 50px;
+    font-size: map-get($font-size, "20");
+  }
+  &__container-likes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__txt {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 270px;
+    padding: 10px 25px;
+    background-color: $color-tertiary;
+    border-radius: $radius-5px;
+  }
+  &__likes {
+    min-width: 45px;
+  }
 }
 
 // Heart icone - like button //
 .ico-likes__link {
+  color: $color-primary;
+  &:hover {
     color: $color-primary;
-    &:hover {
-        color: $color-primary;
-    }
+  }
 }
 .like-ico {
-    cursor: pointer;
+  cursor: pointer;
 }
-
