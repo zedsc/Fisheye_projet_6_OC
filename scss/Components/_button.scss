@@ -45,8 +45,8 @@
   &--mobile {
     position: fixed;
     bottom: 20px;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translate(-50%);
     margin: auto;
     padding: 6px 15px;
     @include large-device-above {
